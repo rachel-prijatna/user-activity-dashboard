@@ -25,7 +25,6 @@ git clone https://github.com/your-username/user-activity-dashboard.git
 
 ### 2. Run the Backend (Go)
 ```bash
-cd go-backend
 go run main.go
 ```
 Runs at: http://localhost:8080/api/users
