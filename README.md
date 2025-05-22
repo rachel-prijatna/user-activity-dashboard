@@ -19,9 +19,14 @@ It highlights users who:
 
 ### 1. Clone the repository
 
+### HTTPS
 ```bash
-git clone https://github.com/your-username/user-activity-dashboard.git 
-``` 
+git clone https://github.com/rachel-prijatna/user-activity-dashboard.git
+```
+### SSH
+```bash
+git clone git@github.com:rachel-prijatna/user-activity-dashboard.git
+```
 
 ### 2. Run the Backend (Go)
 ```bash
