@@ -43,7 +43,7 @@ npm run dev
 ```
 Runs at: http://localhost:5173
 
-🔍 Features
+## 🔍 Features
 
 - Filter users by MFA status (Yes, No, or All)
 
@@ -51,9 +51,10 @@ Runs at: http://localhost:5173
 
 - Clean and responsive design using Material UI
 
-🧠 Design & Architecture Notes / Tradeoffs
 
-🌗 Theme Toggle
+## 🧠 Design & Architecture Notes / Tradeoffs
+
+**🌗 Theme Toggle**
 
 - A light/dark mode toggle is built into the UI using Material UI’s theming system.
 
@@ -61,7 +62,8 @@ Runs at: http://localhost:5173
 
 - Dark mode uses rich brown highlights for contrast, while light mode uses warm amber tones.
 
-📱 Responsiveness
+
+**📱 Responsiveness**
 
 - The layout is designed to be clean and centered, working well on medium to large screens.
 
@@ -69,13 +71,15 @@ Runs at: http://localhost:5173
 
 - Mobile responsiveness is limited — this project is focused on desktop-first design for simplicity.
 
-📊 Static Data Source
+
+**📊 Static Data Source**
 
 - The backend serves hardcoded sample data to simulate user records.
 
 - This simplifies development and avoids external dependencies like databases.
 
 - Tradeoff: no live updates or user interaction, which makes it ideal for demo and learning purposes.
+
 
 🧑‍💻 Author
 Created by Rachel Prijatna
