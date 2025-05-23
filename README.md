@@ -51,5 +51,31 @@ Runs at: http://localhost:5173
 
 - Clean and responsive design using Material UI
 
+🧠 Design & Architecture Notes / Tradeoffs
+
+🌗 Theme Toggle
+
+- A light/dark mode toggle is built into the UI using Material UI’s theming system.
+
+- The theme updates dynamically when the user clicks the toggle button.
+
+- Dark mode uses rich brown highlights for contrast, while light mode uses warm amber tones.
+
+📱 Responsiveness
+
+- The layout is designed to be clean and centered, working well on medium to large screens.
+
+- The table is scrollable if it overflows horizontally.
+
+- Mobile responsiveness is limited — this project is focused on desktop-first design for simplicity.
+
+📊 Static Data Source
+
+- The backend serves hardcoded sample data to simulate user records.
+
+- This simplifies development and avoids external dependencies like databases.
+
+- Tradeoff: no live updates or user interaction, which makes it ideal for demo and learning purposes.
+
 🧑‍💻 Author
 Created by Rachel Prijatna
