@@ -1,16 +1,18 @@
 import React, { useState, useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import './index.css';
+import App from './App.jsx'; //App components
+import './index.css'; //globaly styling
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 
 const Root = () => {
+  //manages current color mode
   const [mode, setMode] = useState('light');
 
   const toggleColorMode = () => {
     setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
+  //recreate theme when mode changes
   const theme = useMemo(() => {
     return createTheme({
       typography: {
@@ -18,6 +20,7 @@ const Root = () => {
       },
       palette: {
         mode,
+        //light mode
         ...(mode === 'light'
           ? {
               background: {
@@ -30,6 +33,7 @@ const Root = () => {
                 main: '#a1887f',
               },
             }
+        //dark mode
           : {
               background: {
                 default: '#121212',
@@ -46,8 +50,9 @@ const Root = () => {
   }, [mode]);
 
   return (
+    //applies theme globally
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      <CssBaseline /> 
       <App toggleColorMode={toggleColorMode} mode={mode} />
     </ThemeProvider>
   );

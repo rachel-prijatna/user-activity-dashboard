@@ -23,8 +23,9 @@ function App({ toggleColorMode, mode }) {
   const [users, setUsers] = useState([]);
   const [mfaFilter, setMfaFilter] = useState("All");
 
+  //fetch and process data
   useEffect(() => {
-    axios.get("http://localhost:8080/api/users")
+    axios.get("http://localhost:8080/api/users") //sends GET request to the Go backend
       .then(res => {
         const today = new Date();
         const enriched = res.data.map(user => ({
@@ -34,9 +35,11 @@ function App({ toggleColorMode, mode }) {
         }));
         setUsers(enriched);
       })
+      //error message
       .catch(err => console.error("Error fetching users:", err));
   }, []);
 
+  //constructs dropdown filter based on mfaEnabled
   const filteredUsers = users.filter(user => {
     if (mfaFilter === "All") return true;
     if (mfaFilter === "Yes") return user.mfaEnabled;
@@ -45,6 +48,7 @@ function App({ toggleColorMode, mode }) {
   });
 
   return (
+    //Outer box
     <Box
       sx={{
         height: '100vh',
@@ -59,7 +63,6 @@ function App({ toggleColorMode, mode }) {
       }}
     >
       <Container maxWidth="lg">
-        {/* Mode Toggle */}
         <Box display="flex" justifyContent="space-between" mb={2}>
           <Typography
             variant="h4"
@@ -71,7 +74,7 @@ function App({ toggleColorMode, mode }) {
           >
             User Activity
           </Typography>
-
+          {/* button to trigger mode change */}
           <Button onClick={toggleColorMode} variant="outlined">
             Switch to {mode === 'light' ? 'Dark' : 'Light'} Mode
           </Button>
@@ -130,7 +133,7 @@ function App({ toggleColorMode, mode }) {
                   sx={{
                     backgroundColor:
                       (user.daysSincePasswordChange > 365 || user.daysSinceLastAccess > 90)
-                        ? (mode === 'light' ? '#ffefdb' : '#5d4037') // orange vs dark red
+                        ? (mode === 'light' ? '#ffefdb' : '#5d4037') // light beige vs dark reddish-brown
                         : 'transparent'
                   }}
                 >

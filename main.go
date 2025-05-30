@@ -1,12 +1,13 @@
 package main
 
 import (
-	"encoding/json"
-	"net/http"
+	"encoding/json" //convert Go structs to JSON
+	"net/http"      //Go's standard lib for creating HTTP servers and handling requests
 
-	"github.com/rs/cors"
+	"github.com/rs/cors" //middleware package to handle CORS, different ports
 )
 
+// create a struct (hard-coded data)
 type User struct {
 	Name                string `json:"name"`
 	CreateDate          string `json:"createDate"`
@@ -15,6 +16,7 @@ type User struct {
 	MfaEnabled          bool   `json:"mfaEnabled"`
 }
 
+// API handler function
 func usersHandler(w http.ResponseWriter, r *http.Request) {
 	users := []User{
 		{"Foo Bar1", "Oct 1 2020", "Nov 1 2024", "Mar 30 2025", true},
@@ -28,10 +30,11 @@ func usersHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(users)
 }
 
+// set up the server
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/users", usersHandler)
 
-	handler := cors.AllowAll().Handler(mux)
+	handler := cors.AllowAll().Handler(mux) //enabling CORS
 	http.ListenAndServe(":8080", handler)
 }
